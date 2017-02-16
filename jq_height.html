@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>가변 높이 처리</title>
+	<link rel="stylesheet" type="text/css" href="css/basic.css">
+  <link rel="stylesheet" type="text/css" href="css/common.css">
+  <link rel="stylesheet" type="text/css" href="css/layout.css">
+	<style>
+	body { height: 100%; margin: 0 0 0 0;}
+	#top { height: 50px; background-color: #eee; width: 100%;}
+	#left { background-color: yellow; float: left; width: 100px; }
+	#content { background-color: #fff; margin-left: 100px; }
+	</style>
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script>
+	$(document).ready(function() {
+		resizeContent();
+	});
+	$(window).resize(function() {
+		resizeContent();
+	});
+
+	function resizeContent() {
+		var windowHeight = $(window).height();
+		var topHeight = $("#top").height();
+		$('#content').css({'height':(windowHeight-topHeight)+'px'});
+	}
+	</script>
+<body>
+<div id="top">헤드 높이</div>
+<div id="left">좌측 메뉴</div>
+<div id="content">
+	<div id="contents">
+		<div class="con_tit">
+			<h2>Account Role 목록</h2>
+		</div>
+		<section class="search">
+			<form action="" method="" id="searchForm" name="searchForm">
+				<fieldset>
+					<legend class="hidden">검색 폼</legend>
+					<p>
+						<label for="keyword" class="hidden">Search</label>
+						<input type="search" id="keyword" name="keyword" required placeholder="Search">
+						<button type="submit">Search</button>
+					</p>
+				</fieldset>
+			</form>
+		</section>
+		<section class="sec_table">
+		<table class="contents_table">
+			<caption>Contents Table</caption>
+			<colgroup>
+				<col width="5%">
+				<col width="15%">
+				<col width="30%">
+				<col width="10%">
+				<col width="10%">
+				<col width="20%">
+				<col width="10%">
+			</colgroup>
+			<thead>
+				<tr>
+					<th><input type="checkbox" name="check" value=""></th>
+					<th>Role ID</th>
+					<th>Role Name</th>
+					<th>Func count</th>
+					<th>User count</th>
+					<th>Reg datetime</th>
+					<th>Reg User</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input type="checkbox" name="check" value=""></td>
+					<td>role001</td>
+					<td>총괄관리자</td>
+					<td>34</td>
+					<td>1</td>
+					<td>yyyy-mm-dd hh:ii:ss</td>
+					<td>honggildong</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="check" value=""></td>
+					<td>role002</td>
+					<td>Node 관리자</td>
+					<td>5</td>
+					<td>2</td>
+					<td>yyyy-mm-dd hh:ii:ss</td>
+					<td>honggildong</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="check" value=""></td>
+					<td>role003</td>
+					<td>노드를 생성하고 관리하는 사용자롤</td>
+					<td>3</td>
+					<td>2</td>
+					<td>yyyy-mm-dd hh:ii:ss</td>
+					<td>honggildong</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="check" value=""></td>
+					<td>role004</td>
+					<td>SLS 관리자</td>
+					<td>5</td>
+					<td>1</td>
+					<td>yyyy-mm-dd hh:ii:ss</td>
+					<td>honggildong</td>
+				</tr>
+			</tbody>
+		</table>
+		</section>
+	</div>
+</div>
+</body>
